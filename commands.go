@@ -609,12 +609,20 @@ func (d *Device) DeleteFiles(fileNames ...string) error {
 
 // DeleteAllPrograms, cihazdan tüm programları siler.
 // Ekran boş kalır.
+//
+// C# SDK'da AddProgram metodu ekrandaki tüm programları değiştirir (replace).
+// Boş bir screen göndermek tüm programları silmek anlamına gelir.
 func (d *Device) DeleteAllPrograms() error {
 	if err := d.ensureConnected(); err != nil {
 		return err
 	}
 
-	xmlData := buildSdkXML(d.sdkGUID, MethodDeleteProgram, "")
+	// Boş bir screen oluştur (program yok) ve AddProgram ile gönder.
+	// AddProgram, mevcut tüm programları bu boş ekranla değiştirir → ekran temizlenir.
+	emptyScreen := NewScreen()
+	screenXML := emptyScreen.toXML()
+	xmlData := buildSdkXML(d.sdkGUID, MethodAddProgram, screenXML)
+
 	resp, err := d.sendSdkCmdAndReceive([]byte(xmlData))
 	if err != nil {
 		return err
