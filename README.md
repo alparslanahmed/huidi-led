@@ -1,4 +1,4 @@
-# huidi-led
+# huidu-led
 
 [![Go Reference](https://pkg.go.dev/badge/github.com/alparslanahmed/huidi-led.svg)](https://pkg.go.dev/github.com/alparslanahmed/huidi-led)
 [![Go Report Card](https://goreportcard.com/badge/github.com/alparslanahmed/huidi-led)](https://goreportcard.com/report/github.com/alparslanahmed/huidi-led)
