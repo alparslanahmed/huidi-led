@@ -1,4 +1,4 @@
-module github.com/alparslanahmed/huidi-led
+module github.com/alparslanahmed/huidu-led
 
 go 1.25.6
 
