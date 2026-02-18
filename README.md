@@ -1,7 +1,7 @@
 # huidu-led
 
-[![Go Reference](https://pkg.go.dev/badge/github.com/alparslanahmed/huidi-led.svg)](https://pkg.go.dev/github.com/alparslanahmed/huidi-led)
-[![Go Report Card](https://goreportcard.com/badge/github.com/alparslanahmed/huidi-led)](https://goreportcard.com/report/github.com/alparslanahmed/huidi-led)
+[![Go Reference](https://pkg.go.dev/badge/github.com/alparslanahmed/huidu-led.svg)](https://pkg.go.dev/github.com/alparslanahmed/huidu-led)
+[![Go Report Card](https://goreportcard.com/badge/github.com/alparslanahmed/huidu-led)](https://goreportcard.com/report/github.com/alparslanahmed/huidu-led)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 A comprehensive Go library for communicating with **Huidu full-color LED controller cards** via the Huidu SDK 2.0 binary TCP protocol.
@@ -71,7 +71,7 @@ A comprehensive Go library for communicating with **Huidu full-color LED control
 ## Installation
 
 ```bash
-go get github.com/alparslanahmed/huidi-led
+go get github.com/alparslanahmed/huidu-led
 ```
 
 Requires Go 1.21 or later.
@@ -88,7 +88,7 @@ import (
     "log"
     "time"
 
-    huidu "github.com/alparslanahmed/huidi-led"
+    huidu "github.com/alparslanahmed/huidu-led"
 )
 
 func main() {
