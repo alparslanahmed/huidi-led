@@ -762,7 +762,7 @@ func buildSetLuminanceXML(info *LuminanceInfo) string {
 		xmlElement("default", "value", fmt.Sprintf("%d", info.DefaultValue)),
 	}
 
-	// Zamanlı parlaklık öğeleri
+	// Zamanlı parlaklık öğeleri — C# SDK daima <ploy></ploy> gönderir (self-closing değil)
 	var ployChildren []string
 	for _, item := range info.CustomItems {
 		ployChildren = append(ployChildren,
@@ -772,7 +772,11 @@ func buildSetLuminanceXML(info *LuminanceInfo) string {
 				"percent", fmt.Sprintf("%d", item.Percent),
 			))
 	}
-	parts = append(parts, xmlElementWithChildren("ploy", nil, ployChildren...))
+	if len(ployChildren) == 0 {
+		parts = append(parts, "<ploy></ploy>")
+	} else {
+		parts = append(parts, xmlElementWithChildren("ploy", nil, ployChildren...))
+	}
 
 	// Sensör ayarları
 	parts = append(parts, xmlElement("sensor",

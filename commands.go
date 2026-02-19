@@ -231,6 +231,17 @@ func (d *Device) SetLuminanceInfo(info *LuminanceInfo) error {
 		return err
 	}
 
+	// C# SDK varsayılan değerleri: sensorMin=1, sensorMax=100, sensorTime=10
+	if info.SensorMin <= 0 {
+		info.SensorMin = 1
+	}
+	if info.SensorMax <= 0 {
+		info.SensorMax = 100
+	}
+	if info.SensorTime <= 0 {
+		info.SensorTime = 10
+	}
+
 	inner := buildSetLuminanceXML(info)
 	xmlData := buildSdkXML(d.sdkGUID, MethodSetLuminancePloy, inner)
 	resp, err := d.sendSdkCmdAndReceive([]byte(xmlData))
